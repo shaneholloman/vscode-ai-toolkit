@@ -1,6 +1,113 @@
-# What's New in AI Toolkit for VS Code Preview
+# What's New in Foundry Toolkit for VS Code
 
-AI Toolkit is an extension pack that includes Microsoft Foundry. For Microsoft Foundry changes, see the [Microsoft Foundry Changelog](https://marketplace.visualstudio.com/items/TeamsDevApp.vscode-ai-foundry/changelog).
+## Version 1.2.1 - 18 May, 2026
+
+This incremental release polishes the Tool Catalog UI, features **GPT-Image-2** in the Popular Models section of the Model Catalog, and fine-tunes default sidebar visibility for easier feature discovery.
+
+### Added
+
+- **GPT-Image-2 in Model Catalog**: GPT-Image-2 is now featured in the Popular Models section, alongside GPT-5.5, Claude Opus 4.7, and Phi-4.
+
+### Changed
+
+- **Tool Catalog**: New tools catalog design with refreshed layout and styling, refined toolbox editor and tool card UI, and clearer label wording across the Tools UI.
+- **Foundry Model Catalog**: Updated the Foundry collapsed-view ranking to surface the latest models — GPT-5.4, Claude Opus 4.6, Grok 4.3, DeepSeek-V4-Flash, Kimi K2.6 (Fireworks), and MiniMax M2.5 (Fireworks). The popular models grid is now responsive for four cards, with breakpoints aligned to card description visibility.
+- **Sidebar Defaults**: The **Discover** category is now expanded by default and the **Help and Feedback** view is collapsed by default for a cleaner first-run experience.
+
+## Version 1.2.0 - 6 May, 2026
+
+This release brings **Hosted Agent (public preview)** to Foundry Toolkit, upgraded **Agent Inspector**, and rounds out **Toolbox** management.
+
+### Added
+
+- **Hosted Agent (Public Preview)**: Build, deploy, and inspect Microsoft Foundry hosted agents from VS Code, powered by the new agent framework hosting package.
+- **Toolbox in Tool Catalog**: Create and manage toolboxes from the UI using the Azure AI Project SDK, with synced sample code.
+- **Test Tool — Approval & Consent**: Inspector test tool now supports approval and consent flows.
+
+### Changed
+
+- **Agent Inspector**: Reworked layout with toolbox support, refreshed Invocations view, and a switch to diagnostic side-stream for improved event delivery.
+- **Model Catalog**: Refreshed header and filter UI, enriched Foundry cards with descriptions and feature tags, and added fuzzy search.
+- **Modular Skills**: Copilot instructions converted into modular skills with progressive loading; renamed to `vscode-microsoft-foundry`.
+- **MCP**: Tokens now refresh automatically.
+
+### Fixed
+
+- Fixed oversized layouts on the Foundry Agent Builder and Create Toolbox pages.
+- Fixed prompt editor styling to match VS Code dropdowns and inputs across light, dark, and high-contrast themes.
+- Polished Model Catalog button styling, hover states, deploy icons, and tag alignment.
+- Fixed agent prompt textboxes disappearing in light and high-contrast modes ([vscode-ai-toolkit#366](https://github.com/microsoft/vscode-ai-toolkit/issues/366)).
+- Fixed playground prompt being lost when resizing the workflow / playground divider.
+- Fixed custom agent / skill generation renaming env vars and breaking Foundry deployments.
+- Improved inference agent reconnect latency and Inspector invocations stream performance.
+- Fixed the **Create New MCP Server** button label and page title.
+- Fixed model icon resolution for Qwen, DeepSeek, Mistral, GLM, and MiniMax.
+- Refreshed the **Experiment with AI Models** walkthrough images for dark and light themes.
+
+
+## Version 1.0.0 - 16 April, 2026
+
+This release marks a significant milestone as AI Toolkit becomes generally available. With this release, we are also renaming AI Toolkit to **Microsoft Foundry Toolkit for VS Code** to better reflect the deep integration and seamless experience it provides with Microsoft Foundry.
+
+All existing features remain intact with better experience and performance. In addition, we have added nine models from [Fireworks AI hosted on Microsoft Foundry](https://azure.microsoft.com/en-us/blog/introducing-fireworks-ai-on-microsoft-foundry-bringing-high-performance-low-latency-open-model-inference-to-azure/), bringing you access to models like Kimi K2.5, MiniMax M2.5, and more.
+
+Read more about our announcement [here](https://aka.ms/mftk-ga-blog).
+
+## Version 0.34.0 - 26 March, 2026
+
+This release introduces LangGraph support in Agent Inspector, a new Recent Agents section for quick navigation, a refreshed Agent Builder UI, and a broad set of improvements across MCP tooling, model compatibility, and the walkthrough experience.
+
+### Added
+
+- **LangGraph Support in Agent Inspector**: Agent Inspector now supports LangGraph agents. Visualize your LangGraph multi-agent workflows in real time and navigate directly to source code by double-clicking workflow nodes.
+
+- **Recent Agents in My Resources**: A new **Recent Agents** section in the sidebar provides quick access to recently opened agents, reducing navigation time.
+
+### Changed
+
+- **Agent Builder UI**: Restyled to align with VS Code native components — buttons, form fields, and typography now match the VS Code design language for a more cohesive experience. The **Create Agent** panel is also responsive.
+
+- **Model Picker**: Foundry models are now ranked above GitHub models in the model dropdown, making the recommended option easier to find.
+
+- **Agent Switcher**: Agents in the switcher now indicate whether they are **Local** or **Foundry** agents, reducing ambiguity when working across multiple agents.
+
+- **MCP Tool Catalog**:
+  - You can now **delete MCP servers** directly from the Tool Catalog.
+  - The "Add tool" dialog now correctly defaults to local configuration when adding a local MCP server.
+  - Tooltips and improved wording clarify where agents and tools are saved (local vs. Foundry).
+
+- **Walkthrough**: Refreshed with an agent-focused design and updated steps. Walkthrough images now support both VS Code **dark and light themes**.
+
+- **"Improve" in Agent Builder**: Now falls back gracefully when a model doesn't support the optimized API, instead of silently failing or showing an error.
+
+- **API Auto-Detection**: AI Toolkit now automatically detects whether a model requires the Responses API or Chat Completions API and switches transparently — no manual configuration needed.
+
+- **Model Catalog**: Popular models updated to the latest versions — GPT-5.4 and Claude Opus 4.6 are now featured.
+
+### Fixed
+
+- Fixed MCP name conflict error ("connection with this name already exists") after deleting and re-adding an MCP server.
+- Fixed Agent Builder model picker rendering issues in some configurations.
+- Fixed the **Improve** button not working for certain Foundry models.
+- Fixed local MCP "Add tools" section incorrectly showing Foundry tools.
+- Fixed loading overlay not fully covering the Agent Builder UI during model operations.
+- Fixed LangGraph agents encountering errors when agentdev endpoints are unavailable.
+- Fixed conversation continuity with the standard Responses API.
+
+
+## Version 0.32.1 - 17 March, 2026
+
+This is an incremental release with bug fix and enhancements.
+
+### Added
+- Added entry point to open `Hosted Agent Playground` directly from the Tree View, providing a seamless transition to test and iterate on your hosted agents after deployment.
+
+### Changed
+- Update extension description to reflect the focus on agent development and integration with Microsoft Foundry.
+
+### Fixed
+- Fixed an issue where the developers are unable to add models via Foundry Local [#364](https://github.com/microsoft/vscode-ai-toolkit/issues/364)
+
 
 ## Version 0.32.0 - 16 March, 2026
 
