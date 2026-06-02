@@ -1,5 +1,21 @@
 # What's New in Foundry Toolkit for VS Code
 
+## Version 1.4.2 - 2 June, 2026
+
+This incremental release adds **Toolbox Guardrails** for safer agent execution and expands Hosted Agent sample coverage with new LangGraph examples.
+
+### Added
+
+- **Toolbox Guardrails**: Apply guardrails to your Toolbox for safer agent execution.
+- **LangGraph Hosted Agent Samples**: Added seven LangGraph samples:
+  - [Responses API - Chat](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/01-langgraph-chat)
+  - [Responses API - MCP](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/04-mcp)
+  - [Responses API - Workflows](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/05-workflows)
+  - [Responses API - Files](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/06-files)
+  - [Responses API - Human-in-the-Loop](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/07-human-in-the-loop)
+  - [Responses API - Observability](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/08-observability)
+  - [Invocations API - Chat](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/invocations/01-langgraph-chat)
+
 ## Version 1.4.1 - 1 June, 2026
 
 This incremental release adds model export, optimization, and quantization through WinML CLI, introduces resource usage interval updates for model profiling, aligns Windows ML with Windows App SDK 2.0, and polishes the Hosted Agent creation and deployment flow.
@@ -70,6 +86,7 @@ This release marks a major milestone: the **[Foundry Toolkit](https://marketplac
 - Improved ZIP deploy service error surfacing for clearer failure diagnostics.
 - Fixed regressions in the Hosted Agent deployment flow.
 - Fixed assorted UI regressions across Agent Builder and Playground.
+
 
 ## Version 1.2.1 - 18 May, 2026
 
