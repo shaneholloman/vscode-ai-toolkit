@@ -1,5 +1,93 @@
 # What's New in Foundry Toolkit for VS Code
 
+## Version 1.4.2 - 2 June, 2026
+
+This incremental release adds **Toolbox Guardrails** for safer agent execution and expands Hosted Agent sample coverage with new LangGraph examples.
+
+### Added
+
+- **Toolbox Guardrails**: Apply guardrails to your Toolbox for safer agent execution.
+- **LangGraph Hosted Agent Samples**: Added seven LangGraph samples:
+  - [Responses API - Chat](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/01-langgraph-chat)
+  - [Responses API - MCP](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/04-mcp)
+  - [Responses API - Workflows](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/05-workflows)
+  - [Responses API - Files](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/06-files)
+  - [Responses API - Human-in-the-Loop](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/07-human-in-the-loop)
+  - [Responses API - Observability](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/08-observability)
+  - [Invocations API - Chat](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/invocations/01-langgraph-chat)
+
+## Version 1.4.1 - 1 June, 2026
+
+This incremental release adds model export, optimization, and quantization through WinML CLI, introduces resource usage interval updates for model profiling, aligns Windows ML with Windows App SDK 2.0, and polishes the Hosted Agent creation and deployment flow.
+
+### Added
+
+- **Model Conversion**
+  - Support export, optimize, quantize model via [WinML CLI](https://github.com/microsoft/winml-cli).
+  - Add new Olive recipes for SAM 2.1, SAM and Stable Diffusion 2.1
+- **Model Profiling**
+  - Support OP level data for Intel (OpenVINO) EP
+  - Support updating interval for resource usage collection
+
+### Changed
+
+- **Hosted Agent Creation**
+  - Auto-select the subscription when only one is available (or the most recently used), and refresh the subscription and project fields after a new project is created.
+  - Disable the second tab until the required selection on the first tab is complete.
+  - Align the search bar borders with the card borders in the selection panel.
+  - Polished title and description font sizes, top and side padding, label-to-input spacing, and dropdown widths to align with the rest of the create flow.
+- **Hosted Agent Deploy**
+  - Setting dropdowns default to the current value with a `(Current)` suffix for quick recognition.
+- **Model Conversion**
+  - Update Windows ML to align with [Windows App SDK 2.0](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=stable)
+
+### Fixed
+
+- **Hosted Agent Deploy**: Restored the **Run agent** button on the deploy page (previously only **View logs** was shown, making the page look like an error state).
+
+## Version 1.4.0 - 28 May, 2026
+
+This release marks a major milestone: the **[Foundry Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) (previously AI Toolkit) and [Microsoft Foundry extension](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.vscode-ai-foundry) are now consolidated into a single Foundry Toolkit extension**. It also brings **Hosted Agent evaluation and tracing to GA**, two new **Hosted Agent deployment options** (ZIP code deploy and Bring-Your-Own-Image ACR), a **refreshed Hosted Agent scaffolding UI**, an expanded **Toolbox** with native **WorkIQ** and **Fabric IQ (OneLake)** integrations, a redesigned **Tools Catalog**, a refreshed **Prompt Builder**, and continuous evaluation settings for production agents.
+
+### Added
+
+- **Observability**
+  - **Hosted Agent Tracing**: Inspect end-to-end traces of Hosted Agent invocations from VS Code for debugging and observability.
+  - **Continuous Evaluation Settings**: New page to configure ongoing evaluation for deployed Hosted Agents.
+  - **Evaluations Node**: One-click access to evaluation runs and results from the Foundry project tree.
+- **Hosted Agent**
+  - **Hosted Agent ZIP Code Deploy**: Deploy your agent source as a ZIP package directly to ADC.
+  - **Hosted Agent Bring-Your-Own-Image (BYOI)**: Deploy from a pre-built container image in your own Azure Container Registry.
+- **Agent Tools and Toolboxes**
+  - **WorkIQ as a Built-in Tool**: Native WorkIQ tool experience in the Toolbox — first-class integration powered by A2A connections, no MCP fallback required. End-to-end toolbox creation with WorkIQ works out of the box.
+  - **Fabric IQ (OneLake Catalog) Integration**: Connect to Microsoft Fabric OneLake catalogs from the Toolbox.
+  - **Toolbox Search Toggle**: Faster discovery across the Tool Catalog.
+  - **Agent Tool Multi-Select**: Wire multiple tools into an agent in a single action.
+
+### Changed
+
+
+- **Hosted Agent**
+  - **Hosted Agent Scaffolding**: Refreshed UI and workflow for clearer project setup.
+  - **Dropped ACA Data-Plane Support**: Hosted Agents now target ADC exclusively.
+- **Agent Tools and Toolboxes**
+  - **Tools Catalog Redesign**: Improved layout, filtering, and tool metadata.
+  - **"Vector Store" Renamed to "Knowledge Index"**: Terminology aligned with Microsoft Foundry.
+- **Extension and UX**
+  - **Single Consolidated Extension**: AI Toolkit and Foundry extensions now ship as one VSIX, eliminating the need to install both.
+  - **Renamed AI Toolkit to Foundry Toolkit**: Updated across UI, commands, and documentation.
+  - **Prompt Builder "Improve an Instruction"**: Dialog redesigned for faster iteration.
+  - **Agent Inspector Header**: Styling aligned with the rest of the extension.
+
+### Fixed
+
+- Polished Remote Agent Playground UI alignment.
+- Fixed MCP toolbox tool icons not rendering correctly.
+- Improved ZIP deploy service error surfacing for clearer failure diagnostics.
+- Fixed regressions in the Hosted Agent deployment flow.
+- Fixed assorted UI regressions across Agent Builder and Playground.
+
+
 ## Version 1.2.1 - 18 May, 2026
 
 This incremental release polishes the Tool Catalog UI, features **GPT-Image-2** in the Popular Models section of the Model Catalog, and fine-tunes default sidebar visibility for easier feature discovery.
