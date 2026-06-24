@@ -1,5 +1,70 @@
 # What's New in Foundry Toolkit for VS Code
 
+## Version 1.6.0 - 23 June, 2026
+
+This release expands the agent tooling story in Foundry Toolkit with **Skills**, three new **custom tools** (Browser Automation, Agent-to-Agent, and OpenAPI), and brings **Routines** to VS Code for scheduled agent automation. It also adds **code-asset download** for code-deployed Hosted Agents and **agent deletion** from the tree.
+
+### Added
+
+- **Skills (preview)**
+  - **Skill support in Toolbox**: Author a `SKILL.md` once, store it centrally as a [versioned skill](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/skills) in Foundry, and attach it to a toolbox so any MCP client discovers and loads it alongside tools — decoupling behavioral guidelines from agent code.
+  - **Skill catalog**: New skill catalog section on the Tools Catalog page to browse available skills.
+- **Agent Tools**
+  - **Browser Automation tool (preview)**: Add the Playwright Workspaces–powered [Browser Automation tool](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/browser-automation) to a toolbox, enabling agents to run scalable, isolated browser sessions for navigation and form filling.
+  - **OpenAPI custom tool**: Connect agents to external HTTP APIs using an [OpenAPI 3.0/3.1 specification](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog#custom-tools).
+  - **Agent-to-Agent (A2A) custom tool (preview)**: Connect an agent to other agents through [A2A-compatible endpoints](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog#custom-tools) for cross-agent communication, configured directly in the toolbox.
+- **Agents view**: A new standalone Agents webview brings every agent in your Foundry project into a single tabbed surface, replacing the separate sidebar tree nodes with one place to browse, open, and manage them. It lists:
+  - **Prompt agents** and **hosted agents** in your project.
+  - **Workflows** for multi-step orchestration.
+  - **Routines** for scheduled, trigger-based automation.
+- **Routines (preview)**: [Foundry Routines](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/routines) provide a project-native way to run an agent automatically when a trigger fires. A routine pairs a single trigger — a one-time timer or a recurring schedule — with an action that invokes a prompt or hosted agent, keeping the trigger, permissions, connections, and run history together with the agent in the same Foundry project. They're ideal for lightweight automation such as daily summaries, one-time reminders, or periodic checks. This release brings Routines to VS Code:
+  - **Create routines** directly from the agent view, hosted-agent detail, and the routine list.
+  - **Routine list**: Browse all routines in your project from a dedicated list view.
+  - **Routine detail view**: Inspect a routine with full run history — inputs, outputs, status, and links to the related agent response and trace details.
+  - **Manage routines**: Edit, rename, duplicate, resume, pause, and delete routines from the list and detail views.
+- **Hosted Agents**
+  - **Code-asset download for direct code deployment**: Download the source code asset for code-deployed Hosted Agents via a new download API and UI action.
+  - **Delete agent**: Delete Hosted Agents from the tree view, the recent-agents list, and the ADC playground.
+- **Agent Builder**: Added a **Copy project endpoint** action to quickly copy your Foundry project endpoint.
+
+### Changed
+
+- **Hosted Agent Deploy**
+  - Default the deploy method to **Code** and list it first.
+  - Removed the **Preview** badge from the Code option on the deploy Basics tab.
+  - Support private-ACR bring-your-own images and gate VNet-only Foundry projects.
+  - Support DNL ACR login servers.
+- **Agents**: Converted the agent **View Code** split button into a menu button exposing both options, and added a searchable agent combobox to the Routine detail UI.
+- **Model Catalog**: Added a GitHub Models retirement banner and disabled deploy for models not supported in the selected region.
+- **Model Conversion**: Added AMD op-level support and Intel GPU LLM op support.
+
+### Fixed
+
+- **Hosted Agent**: Prevented a subscription-selection loop in the hosted-agent flow.
+- **Authentication**: Refresh the Azure token before it expires to avoid `ExpiredAuthenticationToken` errors.
+- **Model Catalog**: Corrected context length and token limits for Foundry models.
+- **Playground**: Fixed the Anthropic `max_tokens` issue.
+- **Evaluation**: Updated Canceled/Partial status icons and colors.
+- **UI**: Style fixes after the `vsc-ui-react` upgrade and improved performance when opening the Tools overview page.
+
+## Version 1.4.3 - 10 June, 2026
+
+This incremental release speeds up model listing with short-lived caching and polishes the Hosted Agent **Create** and **Deploy** experiences with better field alignment, clearer selected-card contrast, and per-option tooltips.
+
+### Changed
+
+- **Performance**
+  - **Faster Model Listing**: Added short-lived caching (30s TTL) with in-flight request de-duplication for the chat model provider and the Foundry Local catalog, cutting redundant lookups during startup and model selection.
+- **Hosted Agent Create**
+  - Aligned field widths across the Create tab (Folder Name, Project Name, and dropdowns) so inputs line up consistently.
+  - Added per-option tooltips and improved text contrast on the selected sample/option cards.
+- **Hosted Agent Deploy**
+  - Made ZIP code deploy fields (Language, Runtime Version, Entry Point, CPU and Memory, Package Command) and other inputs full-width, and aligned the source-browse row with the resource dropdowns.
+
+### Fixed
+
+- **Hosted Agent Create**: Selected sample cards now keep readable text against the active-selection background, and the field tooltip uses a standard pointer instead of the help cursor.
+
 ## Version 1.4.2 - 2 June, 2026
 
 This incremental release adds **Toolbox Guardrails** for safer agent execution and expands Hosted Agent sample coverage with new LangGraph examples.
