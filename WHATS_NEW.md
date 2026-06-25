@@ -1,5 +1,13 @@
 # What's New in Foundry Toolkit for VS Code
 
+## Version 1.6.1 - 24 June, 2026
+
+This hotfix resolves an issue introduced in 1.6.0 where agents could fail to appear in the Agents view.
+
+### Fixed
+
+- **Agents view**: Fixed agents not displaying when listing routines returned a `403 Forbidden` error. The Agents view now handles the failed routines request gracefully so prompt and hosted agents still load. ([#487](https://github.com/microsoft/foundry-toolkit/issues/487))
+
 ## Version 1.6.0 - 23 June, 2026
 
 This release expands the agent tooling story in Foundry Toolkit with **Skills**, three new **custom tools** (Browser Automation, Agent-to-Agent, and OpenAPI), and brings **Routines** to VS Code for scheduled agent automation. It also adds **code-asset download** for code-deployed Hosted Agents and **agent deletion** from the tree.
@@ -26,6 +34,7 @@ This release expands the agent tooling story in Foundry Toolkit with **Skills**,
   - **Code-asset download for direct code deployment**: Download the source code asset for code-deployed Hosted Agents via a new download API and UI action.
   - **Delete agent**: Delete Hosted Agents from the tree view, the recent-agents list, and the ADC playground.
 - **Agent Builder**: Added a **Copy project endpoint** action to quickly copy your Foundry project endpoint.
+- **VNet-restricted projects**: Foundry projects with public network access disabled now show a **VNet required** label in the resources tree when you're not connected to an approved Azure Virtual Network (VNet). The label explains that the project can only be reached from an approved VNet — with a link to the [private network how-to guide](https://learn.microsoft.com/en-us/azure/foundry/how-to/configure-private-link) — and reminds you to refresh the project after connecting.
 
 ### Changed
 
