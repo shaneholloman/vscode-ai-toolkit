@@ -44,7 +44,7 @@ Create a Python hosted agent for B2B customer onboarding and deploy it to a new 
 
 Representative results:
 
-| Copilot model | Time | AI Credits |
+| Copilot model | Time Cost | AI Credits |
 | --- | ---: | ---: |
 | Sonnet 4.6 | 10 min 30 s | 100 |
 | Auto (GPT-5.3-Codex) | 9 min 30 s | 60 |
@@ -54,7 +54,7 @@ Representative results:
 
 This comparison uses Sonnet 4.6 on the same benchmark prompt.
 
-| Setup | Model | Time Cost | AIC |
+| Setup | Model | Time Cost | AI Credits |
 | --- | --- | ---: | ---: |
 | Without the skill | Sonnet 4.6 | 33 min 20 s | 410 |
 | With the skill | Sonnet 4.6 | 10 min 30 s (&#x2B07;&#xFE0F; 69%) | 100 (&#x2B07;&#xFE0F; 76%) |
