@@ -36,19 +36,28 @@ The response should mention Foundry agent workflows such as scaffolding, local t
 
 The Foundry skill performs consistently across different Copilot models. The benchmark tested Claude Opus 4.8, Claude Opus 4.6, Claude Sonnet 4.6, GPT-5.5, GPT-5.4, GPT-5.3-Codex, GPT-5 mini, and MAI-Code-1-Flash.
 
+Benchmark prompt:
+
+```text
+Create a Python hosted agent for B2B customer onboarding and deploy it to a new Foundry project. Use the Responses protocol. After it is done, run in locally to make sure it can run successfully; then deploy it to foundry and ensure it can respond to users correctly
+```
+
 Representative results:
 
-| Copilot model | Time | AI Credits |
+| Copilot model | Time Cost | AI Credits |
 | --- | ---: | ---: |
 | Sonnet 4.6 | 10 min 30 s | 100 |
 | Auto (GPT-5.3-Codex) | 9 min 30 s | 60 |
 | Free plan / cheapest (GPT-5 mini) | 11 min 30 s | 20 |
 
-These results measure time cost and GitHub Copilot AI Credits for this golden path prompt:
+## Benchmark With and Without the Skill
 
-```text
-Create a Python hosted agent for B2B customer onboarding and deploy it to a new Foundry project. Use the Responses protocol. After it is done, run in locally to make sure it can run successfully; then deploy it to foundry and ensure it can respond to users correctly
-```
+This comparison uses Sonnet 4.6 on the same benchmark prompt.
+
+| Setup | Model | Time Cost | AI Credits |
+| --- | --- | ---: | ---: |
+| Without the skill | Sonnet 4.6 | 33 min 20 s | 410 |
+| With the skill | Sonnet 4.6 | 10 min 30 s (&#x2B07;&#xFE0F; 69%) | 100 (&#x2B07;&#xFE0F; 76%) |
 
 ## Run the Benchmark Yourself
 
