@@ -1,5 +1,29 @@
 # What's New in Foundry Toolkit for VS Code
 
+## Version 1.6.2 - 30 June, 2026
+
+This incremental release improves Hosted Agent deployment reliability with unified `azure.yaml` support, safer environment-variable handling, and ACR polling that waits for terminal build status. It also restores Azure sign-in during subscription selection and strengthens the shared Agents list architecture.
+
+### Added
+
+- **Hosted Agent Deploy**
+  - **Unified `azure.yaml` support**: Hosted-agent create and deploy flows now read the unified Azure Developer CLI `azure.yaml` (`host: azure.ai.agent`) for agent name, source, runtime, protocols, environment variables, and resource settings, while falling back to legacy `agent.yaml` with a migration warning.
+
+### Changed
+
+- **Hosted Agent Deploy**
+  - Filter runtime-reserved environment variables (`AGENT_*` and `FOUNDRY_*`) before deploy, warn when values are dropped, and continue with the sanitized set.
+  - ACR build polling now waits until the build reaches a terminal status instead of stopping after a fixed number of attempts, preventing long container builds from failing prematurely.
+- **Hosted Agent samples**: Updated the Agent Framework Toolbox sample to use `TOOLBOX_ENDPOINT`, clearer Azure Developer CLI and Foundry Toolkit setup guidance, and leaner dependencies.
+- **Hosted Agent disclaimers**: Updated the tracing and deploy disclaimer presentation to match the latest compliance guidance.
+
+### Fixed
+
+- **Authentication**: Restored the Azure sign-in prompt in the subscription picker when the user is not signed in, without reintroducing the subscription-selection loop.
+- **Agent Inspector**: OAuth consent cards now remain actionable when an agent response pauses for user consent and appear in the correct order above the assistant response.
+- **Model deployment**: Fixed the deployment dropdown being disabled when a default Foundry project is set.
+- **Fine-tuning**: Local `.jsonl` datasets now generate an Olive config `data_name` of `json`, matching the Hugging Face dataset loader.
+
 ## Version 1.6.1 - 24 June, 2026
 
 This hotfix resolves an issue introduced in 1.6.0 where agents could fail to appear in the Agents view.
