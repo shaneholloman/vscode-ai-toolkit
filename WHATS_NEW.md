@@ -1,5 +1,37 @@
 # What's New in Foundry Toolkit for VS Code
 
+## Version 1.6.3 - 8 July, 2026
+
+This release moves the **Models** and **Knowledge** project nodes from the tree to tabbed resource webviews and adds a richer **Tool Catalog** (inline add-to-agent/toolbox, connected-tool status, and provisionable toolbox templates). It also fixes OAuth consent in the remote playground, Windows invocation of Copilot SDK templates, and several hosted-agent deploy issues.
+
+### Added
+
+- **Tool Catalog**
+  - **Inline operations**: Add a tool to a prompt agent or a toolbox — and create a new toolbox — directly from the Tools Catalog without leaving the page.
+  - **Connected-tool status**: Catalog tools now show whether they're already connected.
+  - **Toolbox templates**: New **Essentials** and **WorkIQ Suite** templates appear in the Toolboxes section with a read-only preview (tools and skills grouped) and one-click provisioning that creates the required connections and skills, then pre-fills the create-toolbox form.
+
+### Changed
+
+- **Knowledge node**: Now opens a tabbed resource webview instead of expanding nested tree items — an **Indexes** tab (vector stores plus project-managed Azure AI Search, Managed Azure AI Search, and CosmosDB indexes) and a **Knowledge Bases** tab for Azure AI Search knowledge bases.
+- **Models node**: Now opens a searchable, tabbed Models webview for your Foundry-hosted model deployments instead of expanding tree items, matching the existing Tools overview.
+- **Agents view**: Each tab — **Prompt Agent**, **Hosted Agent**, **Routines**, and **Workflow** — now shows a short, Microsoft Learn–grounded description with a **Learn more** link so first-time users can tell the agent types apart.
+- **Hosted Agent Create**: Added a dedicated description for the **Invocations (WebSocket)** protocol, highlighting real-time voice and bidirectional streaming over a single persistent connection.
+- **Hosted Agent Deploy**: Aligned the container-deploy schema with the unified Azure Developer CLI payload (`protocol_versions` and a top-level container image).
+- **Hosted Agent messages**: Clearer invoke-playground request-body placeholder (`{"input": "your message"}`) and a more actionable "package too large" (250 MB) code-deploy error.
+- **Hosted Agent samples**: Upgraded the toolbox sample to the latest version.
+
+### Fixed
+
+- **Hosted Agent Playground**: The **Remote** (container) playground now renders the OAuth consent card, so OAuth-gated tools can run, with a resume step after you authorize access.
+- **Hosted Agent (Windows)**: The Copilot SDK Python hosted-agent template now invokes correctly on Windows instead of failing on a missing `/home` path.
+- **Hosted Agent Deploy**
+  - ADC/vNext agents advertising protocol version `2.0.0` are no longer misclassified and blocked at deploy time.
+  - Environment variables authored in the `azure.yaml` `environmentVariables` list form are no longer silently dropped.
+- **Agent Inspector**: `azd ai agent run` now opens the Agent Inspector inside VS Code instead of an external browser.
+- **Resource lists**: Canceling a delete no longer removes the row — lists now reflect the host's actual state after a delete.
+- **MCP tools**: Playwright MCP integration no longer breaks out of the box due to the `load_prompts` default.
+
 ## Version 1.6.2 - 30 June, 2026
 
 This incremental release improves Hosted Agent deployment reliability with unified `azure.yaml` support, safer environment-variable handling, and ACR polling that waits for terminal build status. It also restores Azure sign-in during subscription selection and strengthens the shared Agents list architecture.
