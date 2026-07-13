@@ -34,7 +34,7 @@ The response should mention Foundry agent workflows such as scaffolding, local t
 
 ## Current Benchmark
 
-The Foundry skill performs consistently across different Copilot models. The benchmark tested Claude Opus 4.8, Claude Opus 4.6, Claude Sonnet 4.6, GPT-5.5, GPT-5.4, GPT-5.3-Codex, GPT-5 mini, and MAI-Code-1-Flash.
+The Foundry skill performs consistently across different Copilot models. The benchmark tested Claude Opus 4.8, Claude Opus 4.6, Claude Sonnet 4.6, GPT-5.6 Luna, GPT-5.6 Terra, GPT-5.5, GPT-5.4, GPT-5.3-Codex, GPT-5 mini, and MAI-Code-1-Flash.
 
 Benchmark prompt:
 
@@ -47,6 +47,8 @@ Representative results:
 | Copilot model | Time Cost | AI Credits |
 | --- | ---: | ---: |
 | Sonnet 4.6 | 10 min 30 s | 100 |
+| GPT-5.6 Terra | 9 min | 90 |
+| GPT-5.6 Luna | 8 min | 45 |
 | Auto (GPT-5.3-Codex) | 9 min 30 s | 60 |
 | Free plan / cheapest (GPT-5 mini) | 11 min 30 s | 20 |
 
